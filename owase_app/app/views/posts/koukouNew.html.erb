@@ -1,0 +1,67 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto padding">口腔機能向上プログラム評価登録</p>
+  <a class="nav-link text-white" href="/home/koukou">戻る</a>
+  <a class="nav-link text-white" href="/home/top">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+    <%= form_for(@koukou, url: posts_koukouCreate_path) do |form| %>
+        <% @koukou.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="m-1 row">
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">利用者ID</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :riyosyaId, value: @riyosya.riyosyaId, readonly: true %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">記録日</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :kirokuYmd %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">口腔機能１</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :koukou1, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">口腔機能２</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :koukou2, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">口腔機能３</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :koukou3, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">口腔機能４</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :koukou4, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">口腔機能５</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :koukou5, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">　</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="登録">
+            </div>
+        </div>
+    
+    <% end %>

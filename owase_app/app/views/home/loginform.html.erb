@@ -1,0 +1,22 @@
+<%= form_tag("/login") do %>
+  <% if @error_message %>
+    <div class="alert alert-danger" role="alert">
+      <%= @error_message %>
+    </div>
+  <% end %>
+  <div class="jumbotron">
+    <h1 class="display-3">尾鷲市高齢者介護予防事業</h1>
+    <p class="lead">メールでお知らせしたIDとパスを入力してください。</p>
+    <hr class="my-2">
+    <p class="d-inline mr-2">ID:</p>
+    <input name="idkensaku" class="form-control mr-sm-2 w-25 d-inline" type="text" placeholder="ID" aria-label="idlbl" value="<%= @idkensaku %>" ><br>
+    <p class="d-inline mr-2">PASS:</p>
+    <input name="password" class="form-control mr-sm-2 w-25 d-inline" type="password" placeholder="パスワード" aria-label="passwd" value="<%= @password %>" >
+    <p class="lead">
+      
+  
+    </p>
+    <hr class="my-2">
+      <input type="submit" value="ログイン">
+  </div>
+<% end %>

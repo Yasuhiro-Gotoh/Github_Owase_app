@@ -1,0 +1,68 @@
+<h4><%= @course.name %>　<%= @course.course1 %>会場　出席簿・バイタルチェック表　<%= @course.zissiYmd %></h4>
+
+  <div class="row border">
+    <div class="col-1 border bg-light">
+      <p class="text-center">ID</p>
+    </div>
+    <div class="col-3 border bg-light">
+      <p class="text-center">氏名</p>
+    </div>
+    <div class="col-1 border bg-light">
+      <p class="text-center">出欠</p>
+    </div>
+    <div class="col-1 border bg-light">
+      <p class="text-center">血圧</p>
+    </div>
+    <div class="col-1 border bg-light">
+      <p class="text-center">脈</p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">体調</p>
+    </div>
+    <div class="col-1 border bg-light">
+      <p class="text-center">痛み</p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">特記事項</p>
+    </div>
+
+    <% @sankas.each do|sanka| %> 
+      <div class="col-1 border <%= "bg-secondary" if (sanka.sankaFlg) == "辞退" %>">
+        <p class="text-contents text-center"><%= sanka.riyosyaId %></p>
+          <% if (sanka.kenko).blank? == false %>
+            <span class="text-right">K</span>
+          <% end %>
+          <% if (sanka.rbiko).blank? == false %>
+            <span class="">F</span>
+          <% end %>
+      </div>
+      <div class="col-3 border <%= "bg-secondary" if (sanka.sankaFlg) == "辞退" %>">
+        <p class="text-contents text-center"><%= sanka.simei %></p>
+      </div>
+      <div class="col-1 border">
+        <p class="text-contents text-center"><%= sanka.sankaFlg %></p>
+      </div>
+      <div class="col-1 border">
+        <p class="text-contents text-center"><%= sanka.vital1 %></p>
+      </div>
+      <div class="col-1 border">
+        <p class="text-contents text-center"><%= sanka.vital2 %></p>
+      </div>
+      <div class="col-2 border">
+        <% if (sanka.vital3).blank? == false %>
+          <p class="text-contents text-center"><%= sanka.vital3 %></p>
+        <% else %>
+          <% if (sanka.sankaFlg) != "不参加" %>
+            <p class="text-contents text-center">良・普・悪</p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-1 border">
+        <p class="text-contents text-center"><%= sanka.vital4 %></p>
+      </div>
+      <div class="col-2 border">
+        <p class="text-contents "><%= sanka.riyu %> <%= sanka.biko %></p>
+      </div>
+    <% end %>
+
+  </div>

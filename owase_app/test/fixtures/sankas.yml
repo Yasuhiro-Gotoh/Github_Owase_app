@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  courseId: 1
+  riyosyaId: 1
+  sankaFlg: MyString
+  riyu: MyText
+  biko: MyText
+  vital1: MyString
+  vital2: MyString
+  vital3: MyString
+  vital4: MyString
+  vital5: MyString
+  vital6: MyString
+  vital7: MyString
+  vital8: MyString
+  vital9: MyString
+  vital10: MyString
+
+two:
+  courseId: 1
+  riyosyaId: 1
+  sankaFlg: MyString
+  riyu: MyText
+  biko: MyText
+  vital1: MyString
+  vital2: MyString
+  vital3: MyString
+  vital4: MyString
+  vital5: MyString
+  vital6: MyString
+  vital7: MyString
+  vital8: MyString
+  vital9: MyString
+  vital10: MyString

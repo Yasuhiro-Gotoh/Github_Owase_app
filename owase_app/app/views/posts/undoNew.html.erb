@@ -1,0 +1,103 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto padding">運動プログラム評価登録</p>
+  <a class="nav-link text-white" href="/home/undo">戻る</a>
+  <a class="nav-link text-white" href="/home/top">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+    <%= form_for(@undo, url: posts_undoCreate_path) do |form| %>
+        <% @undo.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="m-1 row">
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">利用者ID</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :riyosyaId, value: @riyosya.riyosyaId, readonly: true %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">記録日</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :kirokuYmd %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">テーマ</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :undo1, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">体重</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo2, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">身長</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo3, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">5回椅子立ち上がり</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo4, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">握力</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo5, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">Timed up & Go</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo6, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">下腿周径</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo7, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">5ｍ歩行</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo8, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">開眼片足立ち</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo9, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">目標</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :mokuhyo, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">備考</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :undo10, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">　</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="登録">
+            </div>
+        </div>
+    
+    <% end %>

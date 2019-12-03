@@ -1,0 +1,69 @@
+<h1>尾鷲市高齢者介護予防事業</h1>
+<!-- <p>見切り発車の情報共有システム</p> -->
+
+<%= form_tag("/home/top", {multipart: true}) do %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">利用者リスト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">一覧 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new">利用者登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home/course">コースリスト</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-warning">
+          <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+          </button>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <span class="badge badge-light">地区：</span>
+        <select class="mr-sm-2" name="selectTiku">
+          <option value="全件">全件</option>
+          <option value="旧町内">旧町内</option>
+          <option value="須賀利">須賀利</option>
+          <option value="賀田">賀田</option>
+          <option value="梶賀">梶賀</option>
+        </select>
+        <input name="kensaku" class="form-control mr-sm-2 w-25" type="text" placeholder="氏名で検索(地区より優先)" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+      </form>
+    </div>
+  </nav>
+<% end %>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>名前</th>
+      <th>写真</th>
+      <th>地区</th>
+      <th>心身機能</th>
+      <th>伝達事項</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @riyosyas.each do|riyosya| %> 
+    <tr>
+      <th scope="row"><%= link_to("選択", "/home/#{riyosya.riyosyaId}") %></th>
+      <td><p class="text-contents text-left"><%= riyosya.riyosyaId %></p></td>
+      <td><p class="text-contents text-left"><%= riyosya.simei %></p></td>
+      <td><img class="imgtest" src="<%= "/user_images/#{riyosya.syasin}" %>" ></td>
+      <td><p class="text-contents text-left"><%= riyosya.tiku %></p></td>
+      <td><p class="text-contents text-left"><%= riyosya.kenko %></p></td>
+      <td><p class="text-contents text-left"><%= riyosya.biko %></p></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

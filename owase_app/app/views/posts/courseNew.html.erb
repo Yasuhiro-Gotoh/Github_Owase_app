@@ -1,0 +1,125 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto padding">コース登録</p>
+  <a class="nav-link text-white" href="/home/course">戻る</a>
+  <a class="nav-link text-white" href="/home/top">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+    <%= form_for(@course, url: posts_courseCreate_path) do |form| %>
+        <% @course.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="m-1 row">
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">コース名</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :name, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施日時</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :zissiYmd %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">写真１</p>
+            </div>
+            <div class="col-lg-8 border">
+                <% if @course.syasin1? %>
+                  <%= image_tag @course.syasin1.url %>
+                <% else %>
+                  <%= image_tag "/user_images/default_image.jpg" %>
+                <% end %>
+                <%= form.file_field :syasin1 %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">写真２</p>
+            </div>
+            <div class="col-lg-8 border">
+                <% if @course.syasin2? %>
+                  <%= image_tag @course.syasin2.url %>
+                <% else %>
+                  <%= image_tag "/user_images/default_image.jpg" %>
+                <% end %>
+                <%= form.file_field :syasin2 %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">場所</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course1, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">出席簿</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course2, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">スタッフ</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course3, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施内容１</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course4, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施内容２</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course5, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施内容３</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course6, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施内容４</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course7, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">実施内容５</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course8, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">配布資料</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :siryo, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">特記事項</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course9, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">内部伝達事項</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :course10, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">　</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="登録">
+            </div>
+        </div>
+    
+    <% end %>

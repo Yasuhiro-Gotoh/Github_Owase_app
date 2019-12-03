@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bango: MyString
+  kumi: MyString
+  han: MyString
+  setai: MyString
+  check: MyString
+  banti: MyString
+  denwa1: MyString
+  denwa2: MyString
+  kanrisya: MyText
+  hosyu: MyText
+  teisyutu: MyString
+  kanai: MyString
+  tyosa: MyString
+  tosyo: MyString
+  saisyu: MyString
+  siteki: MyText
+
+two:
+  bango: MyString
+  kumi: MyString
+  han: MyString
+  setai: MyString
+  check: MyString
+  banti: MyString
+  denwa1: MyString
+  denwa2: MyString
+  kanrisya: MyText
+  hosyu: MyText
+  teisyutu: MyString
+  kanai: MyString
+  tyosa: MyString
+  tosyo: MyString
+  saisyu: MyString
+  siteki: MyText

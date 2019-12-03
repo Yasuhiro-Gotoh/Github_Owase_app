@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  undo1: MyText
+  undo2: MyText
+  undo3: MyText
+  undo4: MyText
+  undo5: MyText
+  undo6: MyText
+  undo7: MyText
+  undo8: MyText
+  undo9: MyText
+  undo10: MyText
+
+two:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  undo1: MyText
+  undo2: MyText
+  undo3: MyText
+  undo4: MyText
+  undo5: MyText
+  undo6: MyText
+  undo7: MyText
+  undo8: MyText
+  undo9: MyText
+  undo10: MyText

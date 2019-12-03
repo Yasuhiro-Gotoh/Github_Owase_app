@@ -1,0 +1,102 @@
+<nav class="nav bg-info line35">
+  <p class="text-white mr-auto">コース参加者情報</p>
+  <a class="nav-link text-white" href="/home/course">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+  <div class="row border">
+    <div class="col-4 mt-3">
+                <% if @course.syasin1? %>
+                  <%= image_tag @course.syasin1.thumb.url %>
+                <% else %>
+                  <%= image_tag "/user_images/default_image.jpg" %>
+                <% end %>
+        <p class="text-center"><%= @course.id %> : <%= @course.name %></p>
+      <div class="text-center">
+        <button type="button" class="btn btn-success" onclick="<%= "location.href='/posts/courseShow/#{@course.id}'" %>" >コース編集</button>
+        <button type="button" class="btn  btn-outline-info" onclick="<%= "location.href='/home/syussekibo/#{@course.id}'" %>" >出席簿</button>
+      </div>
+      
+    </div>
+    <div class="col-8 border">
+      <div class="row m-1">
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          実施日時
+        </div>
+        <div class="col-8 border">
+          <%= @course.zissiYmd %>
+        </div>
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          場所
+        </div>
+        <div class="col-8 border">
+          <%= @course.course1 %>
+        </div>
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          出席簿
+        </div>
+        <div class="col-8 border">
+          <%= @course.course2 %>
+        </div>
+      </div>
+      <h5>スタッフ</h5>
+      <textarea class="w-100"><%= @course.course3 %></textarea><br>
+      <h5>実施内容１</h5>
+      <textarea class="w-100"><%= @course.course4 %></textarea>
+      <h5>実施内容２</h5>
+      <textarea class="w-100"><%= @course.course5 %></textarea>
+
+    </div>
+
+
+  </div>
+  <div class="row border">
+    <div class="col-1 border bg-info">
+      <a class="text-center text-white" href="<%= "/posts/sankaNew" %>">新規追加</a>
+    </div>
+    <div class="col-1 border bg-info">
+      <p class="text-center text-white">利用者ID</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">利用者名</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">参加</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">理由</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">備考</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">血圧</p>
+    </div>
+
+    <% @sankas.each do|sanka| %> 
+      <div class="col-1 border">
+        <%= link_to "選択", posts_sankaShow_path(:id => "#{sanka.id}") %>
+      </div>
+      <div class="col-1 border">
+        <p class="text-center"><%= sanka.riyosyaId %></p>
+      </div>
+      <div class="col-2 border">
+        <p class="text-center"><%= sanka.simei %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= sanka.sankaFlg %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= sanka.riyu %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= sanka.biko %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= sanka.vital1 %></p>
+      </div>
+    <% end %>
+
+  </div>
+  

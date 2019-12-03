@@ -1,0 +1,96 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto padding">コース参加者登録</p>
+  <a class="nav-link text-white" href="/home/courseSanka">戻る</a>
+  <a class="nav-link text-white" href="/home/course">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+    <%= form_for(@sanka, url: posts_sankaCreate_path) do |form| %>
+        <% @sanka.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="m-1 row">
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">コースID</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.collection_select :courseId, Course.where(id: session[:courseId]), :id, :name ,readonly: true %>
+                <!-- <%= form.text_field :courseId %> -->
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">利用者ID</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.collection_select :riyosyaId, Riyosya.all, :riyosyaId, :simei %>
+                <!-- <%= form.text_field :riyosyaId %> -->
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">参加状況</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.select :sankaFlg, [["--", ""],["参加", "参加"], ["不参加", "不参加"], ["辞退", "辞退"]] %>
+
+                <!-- <%= form.text_field :sankaFlg %> -->
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">不参加理由</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :riyu, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">備考</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :biko, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">血圧</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :vital1, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">脈</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :vital2, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">体調</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.select :vital3, [["--", ""],["良い", "良い"], ["普通", "普通"], ["悪い", "悪い"]] %>
+                <!--<%= form.text_area :vital3, class: "w-100" %> -->
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">痛み</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :vital4, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">バイタル５</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :vital5, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">バイタル６</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :vital6, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">　</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="登録">
+            </div>
+        </div>
+    
+    <% end %>

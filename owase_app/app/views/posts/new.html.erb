@@ -1,0 +1,90 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto">利用者登録</p>
+  <a class="nav-link text-white" href="/home/top">戻る</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+    <!--　送信先　-->
+    <%= form_tag("/posts/create", {multipart: true}) do %>
+            <!--登録失敗の場合の警告メッセージ-->
+        <% @riyosya.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        
+        <div class="m-1 row">
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">利用者ID（必須）</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="riyosyaId" class="w-100"><%= @riyosya.riyosyaId %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">名前</p>
+            </div>
+            <div class="col-lg-8 border">
+                <!-- 登録エラー時のための初期値を設定 -->
+                <textarea name="simei" class="w-100"><%= @riyosya.simei %></textarea>
+            </div>
+    
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">生年月日</p>
+            </div>
+            <div class="col-lg-8 border">
+                <!-- 登録エラー時のための初期値を設定 -->
+                <textarea name="birthYmd" class="w-100"><%= @riyosya.birthYmd %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">写真</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input name="image" type="file">
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">性別</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= select_tag "seibetsu", options_for_select({"男" => "男", "女" => "女"}, @riyosya.seibetsu) %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">住所</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="zyusyo" class="w-100"><%= @riyosya.zyusyo %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">地区</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="tiku" class="w-100"><%= @riyosya.tiku %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">連絡先</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="rireki" class="w-100"><%= @riyosya.rireki %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">心身機能</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="kenko" class="w-100"><%= @riyosya.kenko %></textarea>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">伝達事項</p>
+            </div>
+            <div class="col-lg-8 border">
+                <textarea name="biko" class="w-100"><%= @riyosya.biko %></textarea>
+            </div>
+
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">　</p>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="登録">
+            </div>
+        </div>
+    
+    <% end %>

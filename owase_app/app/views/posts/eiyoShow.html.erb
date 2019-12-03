@@ -1,0 +1,70 @@
+<nav class="nav bg-info">
+  <p class="text-white mr-auto padding">栄養改善プログラム評価登録</p>
+  <a class="nav-link text-white" href="/home/eiyo">戻る</a>
+  <a class="nav-link text-white" href="/home/top">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+    <%= form_for(@eiyo, url: posts_eiyoEdit_path) do |form| %>
+        <% @eiyo.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="m-1 row">
+            <%= form.hidden_field :id %>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">利用者ID</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :riyosyaId, readonly: true %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">記録日</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_field :kirokuYmd %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">栄養指導１</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :eiyo1, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">栄養指導２</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :eiyo2, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">栄養指導３</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :eiyo3, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">栄養指導４</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :eiyo4, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center">栄養指導５</p>
+            </div>
+            <div class="col-lg-8 border">
+                <%= form.text_area :eiyo5, class: "w-100" %>
+            </div>
+            <div class="col-lg-4 border">
+                <button type="button" class="btn btn-warning">
+                    <%= link_to("削除", "/posts/eiyoDelete/#{@eiyo.id}", method: :delete, data: { confirm: "削除しますか？" }) %>
+                </button>
+            </div>
+            <div class="col-lg-8 border">
+                <input type="submit" value="更新">
+            </div>
+        </div>
+    
+    <% end %>

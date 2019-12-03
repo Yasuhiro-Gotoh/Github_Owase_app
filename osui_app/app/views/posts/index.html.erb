@@ -1,0 +1,116 @@
+<h1>汚水調査管理システム</h1>
+<nav class="nav bg-info">
+  <p class="text-white m-2 padding">汚水調査詳細</p>
+  <a class="nav-link text-white" href="/home/top">戻る</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+<%= form_with model: @kumijyun,url: posts_edit_path, local: true do |form| %>
+
+    <% @kumijyun.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger" role="alert">
+            <%= message %>
+        </div>
+    <% end %>
+    <div class="m-1 row">
+        <%= form.hidden_field :id %>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">番号</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_field :bango, class: "w-100 mt-1", readonly: true  %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">組順</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_field :kumi, class: "w-100 mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">組班</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :han, [["--", ""], ["01-1", "01-1"], ["01-2", "01-2"]], {selected: @kumijyun.han}, { class: "mt-1" }  %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">世帯主</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_field :setai, class: "w-50 mt-1"  %><span> 選択：</span><%= form.check_box :check %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">番地</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_field :banti, class: "w-100 mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">電話</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_field :denwa1 , class: "mt-1" %><span> 電話２：</span><%= form.text_field :denwa2, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">管理者等</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_area :kanrisya, class: "w-100 mt-1" %>
+        </div>
+            <div class="col-lg-4 border">
+                <p class="text-contents text-center m-2">写真１</p>
+            </div>
+            <div class="col-lg-8 border">
+                <% if @kumijyun.image? %>
+                  <%= image_tag @kumijyun.image.to_s, class: "img-thumbnail" %>
+                <% else %>
+                  <%= image_tag "/user_images/default_image.jpg" %>
+                <% end %>
+                <%= form.file_field :image %>
+            </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">提出図</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :teisyutu, [["--", ""], ["未", "未"], ["○", "○"]], :selected=>@kumijyun.teisyutu, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">家内図</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :kanai, [["--", ""], ["未", "未"], ["○", "○"]], :selected=>@kumijyun.kanai, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">調査図</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :tyosa, [["--", ""], ["未", "未"], ["○", "○"]], :selected=>@kumijyun.tyosa, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">当初図</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :tosyo, [["--", ""], ["未", "未"], ["○", "○"]], :selected=>@kumijyun.tosyo, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">最終図</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.select :saisyu, [["--", ""], ["未", "未"], ["○", "○"]], :selected=>@kumijyun.saisyu, class: "mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">指摘事項</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_area :siteki, class: "w-100 mt-1" %>
+        </div>
+        <div class="col-lg-4 border">
+            <p class="text-contents text-center m-2">補修確認</p>
+        </div>
+        <div class="col-lg-8 border">
+            <%= form.text_area :hosyu, class: "w-100 mt-1" %>
+        </div>
+        <%= form.submit('保存',class: 'btn btn-primary btn-lg my-1 mb-5 px-5') %>
+    </div>
+<% end %>

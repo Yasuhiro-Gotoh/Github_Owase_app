@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  eiyo1: MyText
+  eiyo2: MyText
+  eiyo3: MyText
+  eiyo4: MyText
+  eiyo5: MyText
+  eiyo6: MyText
+  eiyo7: MyText
+  eiyo8: MyText
+  eiyo9: MyText
+  eiyo10: MyText
+
+two:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  eiyo1: MyText
+  eiyo2: MyText
+  eiyo3: MyText
+  eiyo4: MyText
+  eiyo5: MyText
+  eiyo6: MyText
+  eiyo7: MyText
+  eiyo8: MyText
+  eiyo9: MyText
+  eiyo10: MyText

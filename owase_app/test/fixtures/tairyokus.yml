@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  tairyoku1: MyText
+  tairyoku2: MyText
+  tairyoku3: MyText
+  tairyoku4: MyText
+  tairyoku5: MyText
+  tairyoku6: MyText
+  tairyoku7: MyText
+  tairyoku8: MyText
+  tairyoku9: MyText
+  tairyoku10: MyText
+
+two:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  tairyoku1: MyText
+  tairyoku2: MyText
+  tairyoku3: MyText
+  tairyoku4: MyText
+  tairyoku5: MyText
+  tairyoku6: MyText
+  tairyoku7: MyText
+  tairyoku8: MyText
+  tairyoku9: MyText
+  tairyoku10: MyText

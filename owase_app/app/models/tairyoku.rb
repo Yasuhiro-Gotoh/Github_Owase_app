@@ -1,0 +1,2 @@
+class Tairyoku < ApplicationRecord
+end

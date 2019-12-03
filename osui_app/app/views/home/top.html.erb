@@ -1,0 +1,99 @@
+<h1>汚水調査管理システム</h1>
+<p>2019/11/26</p>
+
+<!--  form_with url: root_path do |form| -->
+<%= form_with url: root_path, local: true do |form| %>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">リスト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">一覧 <span class="sr-only">(current)</span></a>
+        </li>
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new">新規登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home/course">コースリスト</a>
+        </li>
+        -->
+        <li class="nav-item">
+          <button type="button" class="btn btn-warning">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          <!-- link_to("ログアウト", "/logout" , {method: :post}) -->
+          </button>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <span class="badge badge-light">組班：</span>
+        <select class="mr-sm-2" name="selectKumihan">
+          <option value="全件">全件</option>
+          <option value="1-1">1-1</option>
+          <option value="1-2">1-2</option>
+          <option value="1-3">1-3</option>
+          <option value="1-4">1-4</option>
+        </select>
+        <span class="badge badge-light">選択：</span>
+        <select class="mr-sm-2" name="selectSentaku">
+          <option value="全件">全件</option>
+          <option value="1">有り</option>
+          <option value="0">無し</option>
+        </select>
+        <input name="kensaku" class="form-control mr-sm-2 w-25" type="text" placeholder="氏名で検索(組班より優先)" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+      </form>
+    </div>
+  </nav>
+
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>#</th>
+        <th>番号</th>
+        <th>組順</th>
+        <th>組班</th>
+        <th>世帯主</th>
+        <th>選択</th>
+        <th>番地</th>
+        <th>電話１</th>
+        <th>電話２</th>
+        <th>管理者</th>
+        <th>補修</th>
+        <th>提出</th>
+        <th>家内</th>
+        <th>調査</th>
+        <th>当初</th>
+        <th>最終</th>
+      </tr>
+        <tbody>
+          <% @kumijyuns.each do|kumijyun| %> 
+          <tr>
+            <th scope="row"><%= link_to("選択", "/home/#{kumijyun.id}") %></th>
+            <td><p class="text-contents text-left"><%= kumijyun.bango %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.kumi %></p></td>
+            <td><p class="text-contents text-left text-nowrap"><%= kumijyun.han %></p></td>
+            <td><p class="text-contents text-left text-nowrap"><%= kumijyun.setai %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.check %></p><%= check_box_tag :check, '1', (kumijyun.check == '1'), {} %></td>
+            <td><p class="text-contents text-left"><%= kumijyun.banti %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.denwa1 %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.denwa2 %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.kanrisya %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.hosyu %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.teisyutu %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.kanai %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.tyosa %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.tosyo %></p></td>
+            <td><p class="text-contents text-left"><%= kumijyun.saisyu %></p></td>
+          </tr>
+          <% end %>
+        </tbody>
+    </thead>
+  
+  </table>
+<% end %>

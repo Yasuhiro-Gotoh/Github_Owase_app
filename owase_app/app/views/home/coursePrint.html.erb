@@ -1,0 +1,83 @@
+<h4 class="w-100 text-center">介護予防事業実施報告書</h4>
+
+<h5>尾鷲市長　加藤　千速　様</h5>
+ <div class="row border">
+    <div class="col-12 border bg-light">
+      <p class="text-contents text-center">令和元年度尾鷲市介護予防事業</p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">実施日時</p>
+    </div>
+    <div class="col-10 border">
+      <p class="text-contents"><%= @course.zissiYmd %></p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">場所</p>
+    </div>
+    <div class="col-10 border">
+      <p class="text-contents"><%= @course.course1 %></p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">参加状況</p>
+    </div>
+    <div class="col-10 border">
+      <p class="text-contents"><%= @course.course2 %></p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">スタッフ</p>
+    </div>
+    <div class="col-10 border ">
+      <p class="text-contents"><%= @course.course3 %></p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">実施内容</p>
+    </div>
+    <div class="col-10 border">
+        <div class="row border">
+            <div class="col-12 border">
+                <p class="text-contents"><%= @course.course4 %></p>
+            </div>
+            <div class="col-12 border">
+                <p class="text-contents"><%= @course.course5 %></p>
+            </div>
+            <div class="col-12 border">
+                <p class="text-contents"><%= @course.course6 %></p>
+            </div>
+            <div class="col-12 border">
+                <p class="text-contents"><%= @course.course7 %></p>
+            </div>
+            <div class="col-12 border">
+                <p class="text-contents"><%= @course.course8 %></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 border bg-light">
+        <p class="text-contents text-center">実施状況写真</p>
+    </div>
+    <div class="col-6 border text-center">
+        <% if @course.syasin1? %>
+            <%= image_tag @course.syasin1.thumb.url %>
+        <% else %>
+            <%= image_tag "/user_images/default_image.jpg" %>
+        <% end %>
+    </div>
+    <div class="col-6 border text-center">
+        <% if @course.syasin2? %>
+            <%= image_tag @course.syasin2.thumb.url %>
+        <% else %>
+            <%= image_tag "/user_images/default_image.jpg" %>
+        <% end %>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">配布資料</p>
+    </div>
+    <div class="col-10 border">
+      <p class="text-contents"><%= @course.siryo %></p>
+    </div>
+    <div class="col-2 border bg-light">
+      <p class="text-center">特記事項</p>
+    </div>
+    <div class="col-10 border">
+      <p class="text-contents"><%= @course.course9 %></p>
+    </div>
+  </div>

@@ -1,0 +1,2 @@
+class KihonCheck < ApplicationRecord
+end

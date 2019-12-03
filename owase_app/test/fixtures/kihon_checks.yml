@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  kihon1: MyString
+  kihon2: MyString
+  kihon3: MyString
+  kihon4: MyString
+  kihon5: MyString
+  kihon6: MyString
+  kihon7: MyString
+  kihon8: MyString
+  kihon9: MyString
+  kihon10: MyString
+  kihon11: MyString
+  kihon12: MyString
+  kihon13: MyString
+  kihon14: MyString
+  kihon15: MyString
+  kihon16: MyString
+  kihon17: MyString
+  kihon18: MyString
+  kihon19: MyString
+  kihon20: MyString
+  kihon21: MyString
+  kihon22: MyString
+  kihon23: MyString
+  kihon24: MyString
+  kihon25: MyString
+
+two:
+  riyosyaId: 1
+  kirokuYmd: MyText
+  kihon1: MyString
+  kihon2: MyString
+  kihon3: MyString
+  kihon4: MyString
+  kihon5: MyString
+  kihon6: MyString
+  kihon7: MyString
+  kihon8: MyString
+  kihon9: MyString
+  kihon10: MyString
+  kihon11: MyString
+  kihon12: MyString
+  kihon13: MyString
+  kihon14: MyString
+  kihon15: MyString
+  kihon16: MyString
+  kihon17: MyString
+  kihon18: MyString
+  kihon19: MyString
+  kihon20: MyString
+  kihon21: MyString
+  kihon22: MyString
+  kihon23: MyString
+  kihon24: MyString
+  kihon25: MyString

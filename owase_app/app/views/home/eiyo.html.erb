@@ -1,0 +1,119 @@
+<nav class="nav bg-info line35">
+  <p class="text-white mr-auto">利用者情報</p>
+  <a class="nav-link text-white" href="/home/top">一覧へ</a>
+  <button type="button" class="btn btn-warning">
+    <%= link_to("ログアウト", "/logout" , {method: :post}) %>
+  </button>
+</nav>
+
+  <div class="row border">
+    <div class="col-4 mt-3">
+      <img class="d-block mx-auto img-thumbnail" src="<%= "/user_images/#{@riyosya.syasin}" %>" >
+      <p class="text-center"><%= @riyosya.riyosyaId %> : <%= @riyosya.simei %></p>
+      <div class="text-center">
+        <button type="button" class="btn btn-success" onclick="<%= "location.href='/posts/show'" %>" >個人情報編集</button>
+      </div>
+      
+    </div>
+    <div class="col-8 border">
+      <div class="row m-1">
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          生年月日
+        </div>
+        <div class="col-8 border">
+          <%= @riyosya.birthYmd %>
+        </div>
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          住所
+        </div>
+        <div class="col-8 border">
+          <%= @riyosya.zyusyo %>
+        </div>
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          地区
+        </div>
+        <div class="col-8 border">
+          <%= @riyosya.tiku %>
+        </div>
+        <div class="col-4 font-weight-bold border bg-success text-white">
+          連絡先
+        </div>
+        <div class="col-8 border">
+          <%= @riyosya.rireki %>
+        </div>
+      </div>
+      <h5>□心身機能</h5>
+      <textarea class="w-100"><%= @riyosya.kenko %></textarea>
+      <h5>□伝達事項</h5>
+      <textarea class="w-100"><%= @riyosya.biko %></textarea>
+    </div>
+
+
+  </div>
+  
+  <ul class="nav nav-tabs mt-3">
+    <li class="nav-item">
+      <a class="nav-link" href="<%= "/home/undo" %>">運動</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= "/home/ninti" %>">認知症</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= "/home/koukou" %>">口腔機能</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown"
+         href="#" role="button" aria-haspopup="true" aria-expanded="false">
+         栄養改善</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="<%= "/posts/eiyoNew" %>">栄養改善　新規追加</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= "/home/riyosyaSanka" %>">参加教室</a>
+    </li>
+  </ul>
+  
+  <div class="row border">
+    <div class="col-1 border bg-info">
+      <p class="text-center text-white">-</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">年月</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">栄養改善１</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">栄養改善２</p>
+    </div>
+    <div class="col-2 border bg-info">
+      <p class="text-center text-white">栄養改善３</p>
+    </div>
+    <div class="col-3 border bg-info">
+      <p class="text-center text-white">栄養改善４</p>
+    </div>
+
+    <% @eiyos.each do|eiyo| %> 
+      <div class="col-1 border">
+        <%= link_to "選択", posts_eiyoShow_path(:id => "#{eiyo.id}", :ymd => "#{eiyo.kirokuYmd}") %>
+      </div>
+      <div class="col-2 border">
+        <p class="text-center"><%= eiyo.kirokuYmd %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= eiyo.eiyo1 %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= eiyo.eiyo2 %></p>
+      </div>
+      <div class="col-2 border">
+        <p><%= eiyo.eiyo3 %></p>
+      </div>
+      <div class="col-3 border">
+        <p><%= eiyo.eiyo4 %></p>
+      </div>
+    <% end %>
+
+  </div>
+  
